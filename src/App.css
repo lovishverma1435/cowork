@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme{
+  --color-lite-gray: #F0F0F0;
+  --color-linear-blue: #480CED;
+  --color-dark-gray: #555555;
+  --color-dark-yellow: #EAA423;
+  --color-normal-blue: #6A39F2;
+  --color-light-blue: #765AFF;
+  --font-inter:" "Inter", sans-serif";
+}
+@layer utilities{
+  .container{
+    @apply max-w-[1360px] w-full mx-auto px-5
+  }
+}

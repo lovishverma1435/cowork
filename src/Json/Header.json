@@ -1,0 +1,23 @@
+{
+   
+    "headerpath":[
+        {
+            "title":"Home",
+            "path":"/"
+        },
+        {
+           "title":"About",
+            "path":"/about" 
+        },{
+           "title":"How It Works",
+            "path":"/how it works" 
+        },{
+           "title":"Blog",
+            "path":"/blog" 
+        },{
+           "title":"Contact",
+            "path":"/contact" 
+        }
+    ]
+    
+}
