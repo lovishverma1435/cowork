@@ -1,0 +1,46 @@
+{
+    "company": [
+        {
+            "name": "Cowork Mate",
+            "image": "cowork.svg",
+            "description": "CoWorkMate helps you find and book the perfect coworking space anywhere, anytime.",
+            "contact": {
+                "email": "Email : support@coworkmate.com",
+                "phone": "Phone : +91 98765 43210",
+                "address": "address : Mumbai, India"
+            }
+        }
+    ],
+    "sections": [
+        {
+            "title": "Quick Links",
+            "links": [
+                "Home",
+                "Browse Workspaces",
+                "How It Works",
+                "Blog",
+                "Contact"
+            ]
+        },
+        {
+            "title": "Explore",
+            "links": [
+                "For Freelancers",
+                "For Teams",
+                "Private Cabins",
+                "Daily Passes",
+                "Book by City"
+            ]
+        },
+        {
+            "title": "Support",
+            "links": [
+                "FAQ",
+                "Help Center",
+                "Cancellation Policy",
+                "Privacy Policy",
+                "Terms & Conditions"
+            ]
+        }
+    ]
+}
