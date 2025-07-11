@@ -15,31 +15,61 @@
         {
             "title": "Quick Links",
             "links": [
-                "Home",
-                "Browse Workspaces",
-                "How It Works",
-                "Blog",
-                "Contact"
+                {
+                    "linkdata": "Home"
+                },
+                {
+                    "linkdata": "Browse Workspaces"
+                },
+                {
+                    "linkdata": "How It Works"
+                },
+                {
+                    "linkdata": "Blog"
+                },
+                {
+                    "linkdata": "Contact"
+                }
             ]
         },
         {
             "title": "Explore",
             "links": [
-                "For Freelancers",
-                "For Teams",
-                "Private Cabins",
-                "Daily Passes",
-                "Book by City"
+                {
+                    "linkdata": "For Freelancers"
+                },
+                {
+                    "linkdata": "For Teams"
+                },
+                {
+                    "linkdata": "Private Cabins"
+                },
+                {
+                    "linkdata": "Daily Passes"
+                },
+                {
+                    "linkdata": "Book by City"
+                }
             ]
         },
         {
             "title": "Support",
             "links": [
-                "FAQ",
-                "Help Center",
-                "Cancellation Policy",
-                "Privacy Policy",
-                "Terms & Conditions"
+                {
+                    "linkdata": "FAQ"
+                },
+                {
+                    "linkdata": "Help Center"
+                },
+                {
+                    "linkdata": "Cancellation Policy"
+                },
+                {
+                    "linkdata": "Privacy Policy"
+                },
+                {
+                    "linkdata": "Terms & Conditions"
+                }
             ]
         }
     ]
