@@ -3,7 +3,7 @@ import footerjson from "../../Json/footer.json"
 const Footer = () => {
     return (
         <>
-            <div className="container grid grid-cols-1 md:grid-cols-2 gap-[30px] sm:gap-10 lg:gap-[100px]">
+            <div className="container grid grid-cols-1 md:grid-cols-2 gap-[30px] sm:gap-10 lg:gap-[100px] pt-[60px]">
                 <div className=" ">
                     {
                         footerjson.company?.map((item, index) => (

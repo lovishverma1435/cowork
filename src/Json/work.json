@@ -1,0 +1,30 @@
+[
+    {
+        "logo":"/public/svg/location.svg",
+        "title":"Browse & Select",
+        "text":"Search by city, filter by amenities, and discover the perfect space."
+    },
+     {
+        "logo":"/public/svg/date.svg",
+        "title":"Choose Your Time",
+        "text":"Pick a date, time, and desk type. Instant confirmation on payment."
+    }, {
+        "logo":"/public/svg/tick.svg",
+        "title":"Check In & Focus",
+        "text":"Arrive, connect to Wi-Fi, grab coffee, and start being productive!"
+    },
+    {
+        "logo":"/public/svg/location.svg",
+        "title":"Browse & Select",
+        "text":"Search by city, filter by amenities, and discover the perfect space."
+    },
+     {
+        "logo":"/public/svg/date.svg",
+        "title":"Choose Your Time",
+        "text":"Pick a date, time, and desk type. Instant confirmation on payment."
+    }, {
+        "logo":"/public/svg/tick.svg",
+        "title":"Check In & Focus",
+        "text":"Arrive, connect to Wi-Fi, grab coffee, and start being productive!"
+    }
+]

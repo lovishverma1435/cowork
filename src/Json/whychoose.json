@@ -1,0 +1,24 @@
+[
+    {
+        "logo":"/public/svg/clockoutline.svg",
+        "title":"Book in Minutes",
+        "text":"Search by city, filter by amenities, and discover the perfect space."
+    },
+     {
+        "logo":"/public/svg/checkfill.svg",
+        "title":"Verified Spaces",
+        "text":"Pick a date, time, and desk type. Instant confirmation on payment."
+    }, {
+        "logo":"/public/svg/materialsymbols.svg",
+        "title":"Transparent Pricing",
+        "text":"Arrive, connect to Wi-Fi, grab coffee, and start being productive!"
+    },{
+        "logo":"/public/svg/wifiadd.svg",
+        "title":"Reliable Amenities",
+        "text":"Pick a date, time, and desk type. Instant confirmation on payment."
+    }, {
+        "logo":"/public/svg/calloutline.svg",
+        "title":"Customer Support",
+        "text":"Arrive, connect to Wi-Fi, grab coffee, and start being productive!"
+    }
+]

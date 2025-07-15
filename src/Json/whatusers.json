@@ -1,0 +1,54 @@
+[
+    {
+        "logo":"smallprofile.svg",
+        "name":"Sakshi Mehra",
+        "work":"Freelance Designer – Delhi",
+        "info":"CoWorkMate made it easy to find quiet workspaces while traveling. The booking process is so smooth!”",
+        "ratinglogo":"starrounded.svg",
+        "ratting":"4.8",
+        "date":"15May,2024"
+    },
+     {
+        "logo":"smallprofiletwo.svg",
+        "name":"Aarav Bansal",
+        "work":"Startup Founder – Bangalore",
+        "info":"I loved how fast I could find a place for my team meetings. No more messy rentals! messy rentals!",
+        "ratinglogo":"starrounded.svg",
+        "ratting":"4.7",
+        "date":"20March,2024"
+    }, {
+        "logo":"smallprofilethree.svg",
+        "name":"Neha Kapoor",
+        "work":"Remote Project Manager – Pune",
+        "info":"Reliable Wi-Fi, coffee, and a productive environment. I use CoWorkMate 3 times a week!”",
+        "ratinglogo":"starrounded.svg",
+        "ratting":"4.9",
+        "date":"10March,2024"
+    },
+    {
+        "logo":"smallprofile.svg",
+        "name":"Sakshi Mehra",
+        "work":"Freelance Designer – Delhi",
+        "info":"CoWorkMate made it easy to find quiet workspaces while traveling. The booking process is so smooth!”",
+        "ratinglogo":"starrounded.svg",
+        "ratting":"4.8",
+        "date":"15 May,2024"
+    },
+     {
+        "logo":"smallprofiletwo.svg",
+        "name":"Aarav Bansal",
+        "work":"Startup Founder – Bangalore",
+        "info":"I loved how fast I could find a place for my team meetings. No more messy rentals! messy rentals!",
+        "ratinglogo":"starrounded.svg",
+        "ratting":"4.7",
+        "date":"20 March,2024"
+    }, {
+        "logo":"smallprofilethree.svg",
+        "name":"Neha Kapoor",
+        "work":"Remote Project Manager – Pune",
+        "info":"Reliable Wi-Fi, coffee, and a productive environment. I use CoWorkMate 3 times a week!”",
+        "ratinglogo":"starrounded.svg",
+        "ratting":"4.9",
+        "date":"10 March,2024"
+    }
+]

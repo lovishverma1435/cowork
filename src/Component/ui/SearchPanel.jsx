@@ -17,7 +17,7 @@ const SearchPanel = () => {
   return (
     <>
     <div className="">
-      <div className="flex flex-col gap-3 pt-[20px] md:py-[30px] px-6 border border-b-0 rounded-2xl [border-image:linear-gradient(to_bottom,#3b82f6_0%,#ffffff_60%)_1] ">
+      <div className="flex flex-col gap-3 pt-[20px] md:py-[30px] px-6 bg-gradient-to-b from-blue-500 to-white  rounded-2xl">
         <div className="flex gap-5 lg:gap-8">
         {/* City input */}
         <div className="flex items-center px-3 py-2 rounded max-w-[135px] sm:max-w-[180px] md:max-w-[228px] w-full bg-lite-gray">
