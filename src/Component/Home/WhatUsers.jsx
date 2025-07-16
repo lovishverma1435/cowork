@@ -46,7 +46,7 @@ const WhatUsers = () => {
                 >
                 {
                     Usersjson.map((item, index) => (
-                        <SwiperSlide className="p-[30px] bg-lite-gray max-w-[419px] w-full rounded-2xl" key={index}>
+                        <SwiperSlide className="p-[30px] bg-lite-gray max-w-[419px] w-full max-h-[248px] rounded-2xl" key={index}>
                             <div className="flex gap-3">
                                 <img src={`/public/svg/${item.logo}`} alt="svg" />
                                 <div className="flex flex-col gap-0.5">
@@ -54,7 +54,7 @@ const WhatUsers = () => {
                                     <h1 className="font-inter font-normal text-xs leading-[130%] text-dark-gray">{item.work}</h1>
                                 </div>
                             </div>
-                            <h1 className="py-6 font-inter font-normal text-lg leading-[130%] text-dark-gray">{item.info}</h1>
+                            <h1 className="py-6 font-inter font-normal text-lg leading-[130%] text-dark-gray line-clamp-2">{item.info}</h1>
                             <div className="flex justify-between items-center">
                                 <div className="flex gap-3">
                                     <img src={`/public/svg/${item.ratinglogo}`} alt="rating" />

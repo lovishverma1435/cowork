@@ -1,9 +1,9 @@
-import Banner from "./Component/Home/Banner";
-import BookWorkspace from "./Component/Home/BookWorkspace";
-import HowitWorks from "./Component/Home/HowitWorks";
-import Questions from "./Component/Home/Questions";
-import WhatUsers from "./Component/Home/WhatUsers";
-import Whychoose from "./Component/Home/Whychoose";
+import Banner from "../Home/Banner";
+import BookWorkspace from "../Home/BookWorkspace";
+import HowitWorks from "../Home/HowitWorks";
+import Questions from "../Home/Questions";
+import WhatUsers from "../Home/WhatUsers";
+import Whychoose from "../Home/Whychoose";
 
 const Home = () => {
   return (

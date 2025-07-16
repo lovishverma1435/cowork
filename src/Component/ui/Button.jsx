@@ -13,7 +13,7 @@ const sizes = {
   md: 'px-[60px] py-[18px] text-2xl font-inter font-normal leading-[130%]',
   lg: 'px-5 py-3 text-lg',
 };
-
+  
 export default function Button({
   children,
   variant = 'primary',

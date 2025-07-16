@@ -1,0 +1,23 @@
+ [
+  {
+    "question": "Q 1. How do I book a workspace on CoWorkMate?",
+    "answer":
+      "A. Simply search by location and date, browse available spaces, and click “Book Now.” You’ll receive instant confirmation via email."
+  },
+  {
+    "question": "Q 2. Can I cancel or reschedule my booking?",
+    "answer": "A. Yes, you can cancel or reschedule through your dashboard before the cancellation deadline."
+  },
+  {
+    "question": "Q 3. What amenities are included in a workspace?",
+    "answer": "A. Amenities vary but commonly include Wi-Fi, coffee, meeting rooms, and printers."
+  },
+  {
+    "question": "Q 4. Do I need a subscription to use CoWorkMate?",
+    "answer": "A. No, you can book on-demand without a subscription. Subscription offers extra benefits."
+  },
+  {
+    "question": "Q 5. Is customer support available if I have issues?",
+    "answer": "A. Yes, 24/7 customer support is available via chat, email, or phone."
+  }
+]

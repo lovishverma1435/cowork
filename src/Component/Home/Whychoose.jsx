@@ -20,8 +20,20 @@ const Whychoose = ({ worktitle, workparagraph }) => {
                 <p className=" text-sm md:text-[20px] text-dark-gray leading-[130%] font-normal font-Inter text-center  mb-[30px] md:mb-[60px] max-w-[487px] w-full m-auto">
                     {workparagraph}
                 </p>
+                <div className="hidden xl:flex flex-wrap justify-center gap-8">
+                    {whychoosejson.map((item, index) => (
+                        <div key={index}>
+                            <Whychoosecard
+                                logo={item.logo}
+                                title={item.title}
+                                text={item.text}
+                            />
+                        </div>
+                    ))}
+                </div>
 
-                <Swiper 
+                <div className="block xl:hidden">
+                <Swiper
                     spaceBetween={32}
                     pagination={{ clickable: true }}
                     breakpoints={{
@@ -46,16 +58,17 @@ const Whychoose = ({ worktitle, workparagraph }) => {
                         },
                     }}
                 >
-                    {whychoosejson.map((item, index) => (
-                        <SwiperSlide key={index}>
-                            <Whychoosecard
-                                logo={item.logo}
-                                title={item.title}
-                                text={item.text}
-                            />
-                        </SwiperSlide>
-                    ))}
+                        {whychoosejson.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <Whychoosecard
+                                    logo={item.logo}
+                                    title={item.title}
+                                    text={item.text}
+                                />
+                            </SwiperSlide>
+                        ))}
                 </Swiper>
+                    </div>
             </div>
         </>
     )
