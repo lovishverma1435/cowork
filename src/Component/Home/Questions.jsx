@@ -28,14 +28,13 @@ const Questions = () => {
                     <div className="w-full flex flex-col items-end">
                         <div className="max-w-[1009px] w-full flex flex-col pt-[60px] gap-[30px]">
                             {quesdata.map((item, index) => {
-                                 const isOpened = isOpen === index;
                                 return (
                                     <div onClick={()=>SetIsopen(index)} key={index+item} className="flex justify-between cursor-pointer w-full">
                                         <div className={` flex flex-col items-start gap-3.5`}>
                                             <h4 className={`font-inter font-medium text-xl border-b leading-[130%] ${isOpen !== index ? " border-dark-gray pb-3.5" : "border-none pb-0 "} `}>{item.question}</h4>
-                                            <p className={`font-inter font-normal text-base leading-[130%] text-dark-gray ${isOpen === index ? "h-[42px] opacity-100  " :"h-0 opacity-0 "} transition-all duration-200 `}>{item.answer}</p>
+                                            <p className={`font-inter font-normal text-base leading-[130%] text-dark-gray ${isOpen === index ? "h-[42px] opacity-100  " :"h-0 opacity-0 "} transition-all duration-500 `}>{item.answer}</p>
                                         </div>
-                                        <img className={`${isOpen === index ? "rotate-180  transition-all duration-200" : "rotate-0"}  `} src={arrowdown} alt="" />
+                                        <img className={`${isOpen === index ? "rotate-180  transition-all duration-500" : "rotate-0"}  `} src={arrowdown} alt="" />
 
                                     </div>
                                 );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import signupimage from "/public/images/sign.png"
+import { Link } from "react-router-dom";
 
 const Signup = () => {
 
@@ -12,7 +13,9 @@ const Signup = () => {
                 {/* Left Form Side */}
                 <div className="w-full md:w-1/2 flex flex-col gap-[30px] md:gap-3 pt-[54px] pb-[100px] pl-[60px]">
                     <div className="">
-                        <img src="/public/svg/arrowleft.svg" alt="" />
+                        <Link to={"/"}>
+                        <img className='cursor-pointer' src="/public/svg/arrowleft.svg" alt="" />
+                        </Link>
                         <h2 className="text-2xl font-bold pt-[22px]">Create Account</h2>
                     </div>
                     <div className="flex gap-8  max-w-[648px] w-full justify-between">
@@ -69,25 +72,18 @@ const Signup = () => {
                         Create Account
                     </button>
                     <div className="text-center text-gray-400 ">Or</div>
-
                     <button className="w-full flex items-center justify-center border border-gray-300 py-2 rounded ">
-                        <img
-                            src="https://img.icons8.com/color/16/000000/google-logo.png"
-                            alt="Google"
-                            className="mr-2"
-                        />
-                        Sign up With Google
+                        <a className='flex' href="https://accounts.google.com/signup" target='_blank'> <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google" className="mr-2 h-6 w-6" />
+                            Sign up With Google</a>
                     </button>
-
                     <p className="text-center text-sm">
                         Already have an Account?{" "}
-                        <a href="#" className="text-blue-600 underline">
+                        <Link to="/login" className="text-blue-600 underline">
                             Log in
-                        </a>
+                        </Link>
                     </p>
                 </div>
 
-                {/* Right Image Side */}
                 <div className="hidden md:flex items-center justify-center  w-1/2">
                     <img
                         src={signupimage}
