@@ -12,16 +12,19 @@ const SearchPanel = () => {
 
   const handleSearch = () => {
     console.log("Search:", { city, date, people });
-    // Add navigation or API logic here
   };
-  const [IsLoading, SetIsLoading] = useState(false)
+  const [searchLoading, setSearchLoading] = useState(false);
+const [exploreLoading, setExploreLoading] = useState(false);
+const [loginLoading, setLoginLoading] = useState(false);
 
-  const handleclick = () => {
-    SetIsLoading(true)
-    setTimeout(() => {
-      SetIsLoading(false)
-    }, 2000)
-  }
+
+  const handleClick = (setLoadingFn) => {
+  setLoadingFn(true);
+  setTimeout(() => {
+    setLoadingFn(false);
+  }, 2000);
+};
+
 
   return (
     <>
@@ -67,9 +70,9 @@ const SearchPanel = () => {
             {/* Search button */}
             <Button variant="search"
               size="sm"
-              onClick={handleclick}
-              isLoading={IsLoading}
-              disabled={IsLoading}
+              onClick={() => handleClick(setSearchLoading)}
+              isLoading={searchLoading}
+              disabled={searchLoading}
               className="h-[48px] ">
               search
             </Button>
@@ -79,18 +82,18 @@ const SearchPanel = () => {
         <div className="hidden md:flex mt-5 lg:mt-10 gap-[32px] items-center">
           <Button variant="primary"
             size="md"
-            onClick={handleclick}
-            isLoading={IsLoading}
-            disabled={IsLoading}
+            onClick={() => handleClick(setExploreLoading)}
+            isLoading={exploreLoading}
+            disabled={exploreLoading}
             className="px-[40px] py-[18px]  font-inter font-normal text-xl leading-[130%]"
           >
             Explore Workspaces
           </Button>
           <Button variant="primary"
             size="md"
-            onClick={handleclick}
-            isLoading={IsLoading}
-            disabled={IsLoading}
+            onClick={() => handleClick(setLoginLoading)}
+            isLoading={loginLoading}
+            disabled={loginLoading}
             className="px-[40px] py-[18px] font-inter font-normal text-xl leading-[130%]"
           >
             Log In

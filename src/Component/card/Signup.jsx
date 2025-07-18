@@ -3,7 +3,6 @@ import signupimage from "/public/images/sign.png"
 import { Link } from "react-router-dom";
 
 const Signup = () => {
-
     const [agree, setAgree] = useState(false);
 
     return (
@@ -14,7 +13,7 @@ const Signup = () => {
                 <div className="w-full md:w-1/2 flex flex-col gap-[30px] md:gap-3 pt-[54px] pb-[100px] pl-[60px]">
                     <div className="">
                         <Link to={"/"}>
-                        <img className='cursor-pointer' src="/public/svg/arrowleft.svg" alt="" />
+                            <img className='cursor-pointer' src="/public/svg/arrowleft.svg" alt="" />
                         </Link>
                         <h2 className="text-2xl font-bold pt-[22px]">Create Account</h2>
                     </div>
@@ -24,7 +23,7 @@ const Signup = () => {
                             <input
                                 type="text"
                                 placeholder="Enter your First Name"
-                                className=" outline-none rounded pl-3 py-[22px] bg-lite-gray font-inter font-medium text-sm leading-[130%]"
+                                className=" outline-none rounded pl-3 py-[22px] bg-lite-gray font-inter font-normal text-sm leading-[130%]"
                             />
                         </div>
                         <div className="flex flex-col gap-3.5 max-w-[306px] w-full">
@@ -32,7 +31,7 @@ const Signup = () => {
                             <input
                                 type="text"
                                 placeholder="Enter your Last Name"
-                                className=" outline-none rounded pl-3 py-[22px] bg-lite-gray font-inter font-medium text-sm leading-[130%]"
+                                className=" outline-none rounded pl-3 py-[22px] bg-lite-gray font-inter font-normal text-sm leading-[130%]"
                             />
                         </div>
                     </div>
@@ -41,34 +40,34 @@ const Signup = () => {
                         <input
                             type="email"
                             placeholder="Enter your E-mail"
-                            className="w-full outline-none rounded px-4 py-2 bg-lite-gray font-inter font-medium text-sm leading-[130%]"
+                            className="w-full outline-none rounded pl-3 py-[22px] bg-lite-gray font-inter font-normal text-sm leading-[130%]"
                         /></div>
                     <div className="flex flex-col gap-3.5 ">
                         <h1 className='font-inter font-medium text-xl leading-[130%]'>Password</h1>
                         <input
                             type="password"
                             placeholder="Create Password"
-                            className="w-full outline-none rounded px-4 py-2 bg-lite-gray font-inter font-medium text-sm leading-[130%]"
-                        /></div>
-
+                            className="w-full outline-none rounded pl-3 py-[22px] bg-lite-gray font-inter font-normal text-sm leading-[130%]"
+                        />
+                    </div>
                     <div className="flex items-center gap-2 text-sm text-gray-700">
                         <input
                             type="checkbox"
                             checked={agree}
                             onChange={() => setAgree(!agree)}
                         />
-                        <span>
+                        <span className='py-5'>
                             I agree with{" "}
-                            <a href="#" className="text-blue-600 underline">
+                            <a href="#" className="text-light-blue underline">
                                 terms
                             </a>{" "}
                             and{" "}
-                            <a href="#" className="text-blue-600 underline">
+                            <a href="#" className="text-light-blue-blue underline">
                                 privacy Policy
                             </a>
                         </span>
                     </div>
-                    <button className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-2 rounded mb-5">
+                    <button className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-5 rounded mb-5 cursor-pointer font-inter font-normal text-xl leading-[130%]">
                         Create Account
                     </button>
                     <div className="text-center text-gray-400 ">Or</div>
@@ -78,12 +77,11 @@ const Signup = () => {
                     </button>
                     <p className="text-center text-sm">
                         Already have an Account?{" "}
-                        <Link to="/login" className="text-blue-600 underline">
+                        <Link to="/login" className="text-light-blue underline">
                             Log in
                         </Link>
                     </p>
                 </div>
-
                 <div className="hidden md:flex items-center justify-center  w-1/2">
                     <img
                         src={signupimage}
