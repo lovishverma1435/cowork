@@ -10,11 +10,18 @@ import Forget from './Component/card/Forgotpassword'
 import Change from './Component/card/Changepassword'
 
 function App() {
-
+const isAuthPage = location.pathname === "/Login" || location.pathname === "/Signup";
   return (
     <>
       <BrowserRouter>
-        <Header />
+          {
+            isAuthPage ?
+              <Routes>
+                <Route path="/Signup" element={<Signup />} />
+                <Route path="/Login" element={<Login />} />
+              </Routes>
+              :
+        (<><Header />
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/signup' element={<Signup/>}/>
@@ -22,7 +29,8 @@ function App() {
           <Route path='/forget' element={<Forget/>}/>
           <Route path='/change' element={<Change/>}/>
         </Routes>
-        <Footer />
+        <Footer /></>)
+}
       </BrowserRouter>
     </>
   )
