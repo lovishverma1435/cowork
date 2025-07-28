@@ -10,27 +10,29 @@ import Forget from './Component/card/Forgotpassword'
 import Change from './Component/card/Changepassword'
 
 function App() {
-const isAuthPage = location.pathname === "/Login" || location.pathname === "/Signup";
+  // const isAuthPage = location.pathname === "/" || location.pathname === "/Signup" || location.pathname === "/forget" || location.pathname === "/change";
   return (
     <>
       <BrowserRouter>
-          {
-            isAuthPage ?
+        {
+          // isAuthPage ?
+            // <Routes>
+            //   <Route path="/" element={<Login />} />
+            //   <Route path="/Signup" element={<Signup />} />
+            //   <Route path='/forget' element={<Forget />} />
+            //   <Route path='/change' element={<Change />} />
+            // </Routes>
+            // :
+            (<><Header />
               <Routes>
-                <Route path="/Signup" element={<Signup />} />
-                <Route path="/Login" element={<Login />} />
+                <Route path='/' element={<Home />} />
+                <Route path='/signup' element={<Signup />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/forget' element={<Forget />} />
+                <Route path='/change' element={<Change />} />
               </Routes>
-              :
-        (<><Header />
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/signup' element={<Signup/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/forget' element={<Forget/>}/>
-          <Route path='/change' element={<Change/>}/>
-        </Routes>
-        <Footer /></>)
-}
+              <Footer /></>)
+        }
       </BrowserRouter>
     </>
   )

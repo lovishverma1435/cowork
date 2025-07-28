@@ -11,7 +11,7 @@ const Change = () => {
     const [Showpass, Setshowpass] = useState(false);
     return (
         <div className="min-h-screen flex items-center justify-center bg-white px-4">
-            <div className="w-full max-w-6xl flex flex-col md:flex-row bg-white shadow-xl rounded-2xl overflow-hidden">
+            <div className="w-full max-w-[1360px] flex flex-col md:flex-row bg-white shadow-xl rounded-2xl overflow-hidden">
                 <div className="w-full md:w-1/2 flex flex-col gap-[30px] md:gap-3 pt-[54px] pb-[100px] pl-[60px]">
                     <div className="">
                         <Link to={"/login"}>
@@ -62,7 +62,7 @@ const Change = () => {
                     <img
                         src={signupimage}
                         alt="Signup Illustration"
-                        className="max-w-full h-auto object-contain"
+                        className="max-w-[704px] w-full max-h-[1024px] h-full"
                     />
                 </div>
             </div>

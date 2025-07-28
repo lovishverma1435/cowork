@@ -2,6 +2,7 @@ import Banner from "../Home/Banner";
 import BookWorkspace from "../Home/BookWorkspace";
 import HowitWorks from "../Home/HowitWorks";
 import Questions from "../Home/Questions";
+import TopWorkspace from "../Home/Topworkspace";
 import WhatUsers from "../Home/WhatUsers";
 import Whychoose from "../Home/Whychoose";
 
@@ -10,6 +11,7 @@ const Home = () => {
     <>
       <Banner/>
       <HowitWorks worktitle={"How It Works"} workparagraph={"Booking a coworking space has never been easier."}/>
+      <TopWorkspace worktitle={"Top Featured Workspaces"} workparagraph={"Handpicked workspaces loved by remote professionals and teams."}/>
       <Whychoose worktitle={"Why Choose CoWorkMate?"} workparagraph={"Simplifying workspace booking for individuals, teams, and businesses."}/>
       <WhatUsers/>
       <Questions/>

@@ -14,22 +14,23 @@ const SearchPanel = () => {
     console.log("Search:", { city, date, people });
   };
   const [searchLoading, setSearchLoading] = useState(false);
-const [exploreLoading, setExploreLoading] = useState(false);
-const [loginLoading, setLoginLoading] = useState(false);
+  const [exploreLoading, setExploreLoading] = useState(false);
+  const [loginLoading, setLoginLoading] = useState(false);
 
 
   const handleClick = (setLoadingFn) => {
-  setLoadingFn(true);
-  setTimeout(() => {
-    setLoadingFn(false);
-  }, 2000);
-};
+    setLoadingFn(true);
+    setTimeout(() => {
+      setLoadingFn(false);
+    }, 2000);
+  };
 
 
   return (
     <>
       <div className="">
-        <div className="flex flex-col gap-3 pt-[20px] md:py-[30px] px-6 bg-gradient-to-b from-blue-500 to-white  rounded-2xl">
+        <img className="absolute max-w-[563px] w-full" src="/images/Frameborder.png" alt="" />
+        <div className="flex flex-col gap-3 pt-[20px] md:py-[30px] px-6 relative">
           <div className="flex gap-5 lg:gap-8">
             {/* City input */}
             <div className="flex items-center px-3 py-2 rounded max-w-[135px] sm:max-w-[180px] md:max-w-[228px] w-full bg-lite-gray">
@@ -39,12 +40,12 @@ const [loginLoading, setLoginLoading] = useState(false);
                 placeholder="Enter city or area"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="flex-1 outline-none font-inter font-normal text-[10px] sm:text-sm md:text-lg"
+                className="flex-1 outline-none font-inter font-normal text-[10px] sm:text-sm md:text-lg leading-[130%]"
               />
             </div>
 
             {/* Date picker */}
-            <div className="flex items-center px-3 py-2 rounded max-w-[135px] sm:max-w-[180px] md:max-w-[228px] w-full bg-lite-gray">
+            <div className="flex items-center px-3 py-2 rounded max-w-[135px] sm:max-w-[180px] md:max-w-[255px] w-full bg-lite-gray">
               <MdCalendarToday className="text-gray-500 mr-2 text-sm" />
               <DatePicker
                 selected={date}

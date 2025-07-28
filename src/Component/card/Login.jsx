@@ -27,7 +27,7 @@ const Login = () => {
       localStorage.setItem('id', res.data.data.id);
       setMessage(message || 'Login successful');
       alert("Login Successful!");
-      navigate(""); 
+      navigate("");
     } catch (err) {
       setMessage(err.response?.data?.message || 'Login failed');
       alert(message || "Login Failed");
@@ -36,7 +36,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4">
-      <div className="w-full max-w-6xl flex flex-col md:flex-row bg-white shadow-xl rounded-2xl overflow-hidden">
+      <div className="w-full max-w-[1360px] flex flex-col md:flex-row bg-white shadow-xl rounded-2xl overflow-hidden">
         <form onSubmit={handleLogin} className="w-full md:w-1/2 flex flex-col gap-[30px] md:gap-3 pt-[54px] pb-[100px] pl-[60px]">
           <div>
             <Link to="/signup">
@@ -70,7 +70,7 @@ const Login = () => {
                 required
                 className="w-full outline-none rounded pl-3 py-[22px] bg-lite-gray"
               />
-              <div className="absolute right-3 top-1/4 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
+              <div className="absolute right-3 top-7 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
               </div>
             </div>
@@ -86,13 +86,13 @@ const Login = () => {
             </Link>
           </div>
 
-<Link to={"/"}>
-          <button
-            type="submit"
-            className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-2 rounded text-xl"
-          >
-            Log in
-          </button></Link>
+          <Link to={"/home"}>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-2 rounded text-xl cursor-pointer"
+            >
+              Log in
+            </button></Link>
 
           <div className="flex flex-col gap-[30px]">
             <Link to="/signup">
@@ -112,7 +112,7 @@ const Login = () => {
         </form>
 
         <div className="hidden md:flex items-center justify-center w-1/2">
-          <img src={signupimage} alt="Signup Illustration" className="max-w-full h-auto object-contain" />
+          <img src={signupimage} alt="Signup Illustration" className="max-w-[704px] w-full max-h-[1024px] h-full" />
         </div>
       </div>
     </div>

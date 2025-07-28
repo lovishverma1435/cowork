@@ -8,6 +8,7 @@
   --color-dark-yellow: #EAA423;
   --color-normal-blue: #6A39F2;
   --color-light-blue: #765AFF;
+  --color-golden: #EAA423;
   --font-inter:" "Inter", sans-serif";
 }
 @layer utilities{

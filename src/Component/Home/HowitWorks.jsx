@@ -11,13 +11,13 @@ const HowitWorks = ({worktitle,workparagraph}) => {
     <div className="container pt-[30px] md:pt-[60px] pb-[60px]">
       <div className="flex items-center justify-center gap-[26px] mb-3 md:mb-6">
         <img className='hidden md:block' src={arrowline1} alt="Workssvg1" />
-        <h1 className="font-Inter font-semibold text-[22px] md:text-[40px] leading-[130%] text-black-black">
+        <h1 className="font-inter font-semibold text-[22px] md:text-[40px] leading-[130%] text-black-black">
           {worktitle}
         </h1>
         <img  className='hidden md:block' src={arrowline2} alt="Workssvg2" />
       </div>
 
-      <p className=" text-sm md:text-[20px] text-dark-gray leading-[130%] font-normal font-Inter text-center  mb-[30px] md:mb-[60px]">
+      <p className=" text-sm md:text-[20px] text-dark-gray leading-[130%] font-normal font-inter text-center  mb-[30px] md:mb-[60px]">
         {workparagraph}
       </p>
 

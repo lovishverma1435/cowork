@@ -17,7 +17,7 @@ const Whychoose = ({ worktitle, workparagraph }) => {
                     <img className='hidden md:block' src={arrowline2} alt="Workssvg2" />
                 </div>
 
-                <p className=" text-sm md:text-[20px] text-dark-gray leading-[130%] font-normal font-Inter text-center  mb-[30px] md:mb-[60px] max-w-[487px] w-full m-auto">
+                <p className=" text-sm md:text-[20px] text-dark-gray leading-[130%] font-normal font-inter text-center  mb-[30px] md:mb-[60px] max-w-[487px] w-full m-auto">
                     {workparagraph}
                 </p>
                 <div className="hidden xl:flex flex-wrap justify-center gap-8">
