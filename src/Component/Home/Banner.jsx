@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react"
 import SearchPanel from "../ui/SearchPanel"
+import axios from "axios"
 
 const Banner = () => {
+    
     return (
         <>
             <div className="container mb-[66px]">

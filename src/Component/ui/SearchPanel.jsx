@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { MdCalendarToday } from "react-icons/md";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const SearchPanel = () => {
   const [city, setCity] = useState("");
@@ -81,6 +82,7 @@ const SearchPanel = () => {
         </div>
         {/* Footer Buttons */}
         <div className="hidden md:flex mt-5 lg:mt-10 gap-[32px] items-center">
+          <Link to={"/browserworkspace"}>
           <Button variant="primary"
             size="md"
             onClick={() => handleClick(setExploreLoading)}
@@ -89,7 +91,7 @@ const SearchPanel = () => {
             className="px-[40px] py-[18px]  font-inter font-normal text-xl leading-[130%]"
           >
             Explore Workspaces
-          </Button>
+          </Button></Link>
           <Button variant="primary"
             size="md"
             onClick={() => handleClick(setLoginLoading)}

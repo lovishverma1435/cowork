@@ -8,6 +8,11 @@ import Signup from './Component/card/Signup'
 import Login from './Component/card/Login'
 import Forget from './Component/card/Forgotpassword'
 import Change from './Component/card/Changepassword'
+import About from './Component/Pages/About'
+import HowitWorks from './Component/Pages/HowitWorks'
+import Blog from './Component/Pages/Blog'
+import Contact from './Component/Pages/Contact'
+import BrowserWorkspace from './Component/Pages/BrowserWorkspace'
 
 function App() {
   // const isAuthPage = location.pathname === "/" || location.pathname === "/Signup" || location.pathname === "/forget" || location.pathname === "/change";
@@ -30,6 +35,11 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/forget' element={<Forget />} />
                 <Route path='/change' element={<Change />} />
+                <Route path='/about' element={<About />} />
+                <Route path='/howitworks' element={<HowitWorks />} />
+                <Route path='/blog' element={<Blog />} />
+                <Route path='/contact' element={<Contact />} />
+                <Route path='/browserworkspace' element={<BrowserWorkspace/>} />
               </Routes>
               <Footer /></>)
         }
