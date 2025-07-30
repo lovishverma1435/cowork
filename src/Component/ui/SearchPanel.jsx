@@ -75,7 +75,7 @@ const SearchPanel = () => {
               onClick={() => handleClick(setSearchLoading)}
               isLoading={searchLoading}
               disabled={searchLoading}
-              className="h-[48px] ">
+              className="h-[48px] cursor-pointer">
               search
             </Button>
           </div>

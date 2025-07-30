@@ -1,31 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../ui/Button'
-import { SwiperSlide ,Swiper} from 'swiper/react'
-import "swiper/css";
-import "swiper/css/pagination";
+
 import axios from 'axios';
+import Delhi from '../Browserworkspace/Delhi';
+import Chandigarh from '../Browserworkspace/Chandigarh';
+import Noyda from '../Browserworkspace/Noyda';
+import Jaipur from '../Browserworkspace/Jaipur';
+import Kangra from '../Browserworkspace/Kangra';
+import Dheradun from '../Browserworkspace/Dheradun';
 
 const BrowserWorkspace = () => {
-const [data ,setdata]=useState([])
-    const hndeleget=async () => {
+    const [data, setdata] = useState([])
+
+    const hndeleget = async () => {
         try {
             const res = await axios.get("http://localhost:3000/api/getallproduct")
-              console.log(res.data.data)
-              setdata(res.data.data)
+            console.log(res.data.data)
+            setdata(res.data.data)
         } catch (error) {
             console.error(error);
-            
         }
     }
-    useEffect(()=>{
-hndeleget()
-    },[])
-    console.log(data)
+    useEffect(() => {
+        hndeleget()
+    }, [])
+    const delhi = data.filter((item)=>item.catogry === "Delhi")
+    const chandigarh = data.filter((item)=>item.catogry === "Chandigarh")
+    const noyda = data.filter((item)=>item.catogry === "Noyda")
+    const jaipur = data.filter((item)=>item.catogry === "Jaipur")
+    const kangra = data.filter((item)=>item.catogry === "Kangra")
+    const dheradun = data.filter((item)=>item.catogry === "Dheradun")
+
     return (
         <>
             <div className="container">
                 <div className="flex flex-col text-center pt-[60px] pb-[100px] gap-8 ">
-                    <h1 className='font-inter font-semibold text-[64px]'>Browse Workspaces</h1>
+                    <h1 className='font-inter font-semibold text-[26px] md:text-[64px]'>Browse Workspaces</h1>
                     <p className='font-inter font-normal text-[22px]'>Find the perfect coworking space for you</p>
                     <div className="flex max-w-[800px] w-full bg-lite-gray rounded-2xl  mx-auto overflow-hidden">
                         <div className="flex  pl-5 pr-3 gap-[42px] items-center max-w-[274px] w-full">
@@ -46,64 +56,12 @@ hndeleget()
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center gp-[10px]">
-                    <h5 className="font-Inter font-semibold text-[22px] leading-[100%]">
-                        {}
-                    </h5>
-                    <img src={img} alt="" />
-                </div>
-                <Swiper
-                    spaceBetween={32}
-                    pagination={{ clickable: true }}
-                    breakpoints={{
-                        375: {
-                            slidesPerView: 1,
-                        },
-                        500: {
-                            slidesPerView: 1.2,
-                        },
-                        640: {
-                            slidesPerView: 1.5,
-                        },
-                        750: {
-                            slidesPerView: 2,
-                        },
-                        768: {
-                            slidesPerView: 2.5,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                        },
-                    }}
-                >
-                    {res.map((item, index) => (
-                        <SwiperSlide
-                            key={index}
-                            className=" mt-[32px] rounded-[12px] overflow-x-hidden mb-[30px] md:mb-[50px]  max-w-[419px] w-full"
-                        >
-                            <img src={item.mainimg} alt="" />
-                            <div className="">
-                                <h2 className="pb-[6px] pt-3 md:pt-[14px] font-Inter font-medium text-lg sm:text-[22px] leading-[100%]">
-                                    {item.text}
-                                </h2>
-                                <span className="flex items-center gap-1 pb-[22px] md:pb-[22px]">
-                                    <p className="font-Inter font-normal text-base sm:text-lg leading-[100%]">
-                                        {item.location}
-                                    </p>
-                                    <span className="flex items-center gap-[10px]">
-                                        <p className="font-Inter font-normal text-base sm:text-lg leading-[100%]">
-                                            {item.price}
-                                        </p>
-                                        <img src={item.star} alt="" />
-                                        <p className="font-Inter font-normal text-base sm:text-lg leeleading-[100%]">
-                                            {item.rating}
-                                        </p>
-                                    </span>
-                                </span>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+               <Delhi delhi={delhi}/>
+               <Chandigarh chandigarh={chandigarh}/>
+               <Noyda noyda={noyda}/>
+               <Jaipur jaipur={jaipur}/>
+               <Kangra kangra={kangra}/>
+               <Dheradun dheradun={dheradun}/>
             </div>
         </>
     )
