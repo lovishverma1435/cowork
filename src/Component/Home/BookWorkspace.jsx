@@ -2,6 +2,7 @@ import { useState } from "react";
 import arrowline1 from "../../../public/svg/Line.svg";
 import arrowline2 from "../../../public/svg/rightline.svg";
 import Button from "../ui/Button";
+import { Link } from "lucide-react";
 
 const BookWorkspace = () => {
     const [IsLoading, SetIsLoading] = useState(false)
@@ -28,14 +29,16 @@ const BookWorkspace = () => {
                         Join thousands of professionals using CoWorkMate to work better, smarter, and anywhere.
                     </p>
                     <div className="flex w-full justify-center pt-[30px]">
-                        <Button variant="primary"
-                            size="md"
-                            onClick={handleclick}
-                            isLoading={IsLoading}
-                            disabled={IsLoading}
-                            className="px-[60px] py-[18px]  font-inter font-normal text-xl leading-[130%]">
-                            Find a Workspace
-                        </Button>
+                        <Link to={"/browserworkspace"}>
+                            <Button variant="primary"
+                                size="md"
+                                onClick={handleclick}
+                                isLoading={IsLoading}
+                                disabled={IsLoading}
+                                className="px-[60px] py-[18px]  font-inter font-normal text-xl leading-[130%]">
+                                Find a Workspace
+                            </Button>
+                            </Link>
                     </div>
                     <div className="flex w-full justify-center pt-7">
                         <h1 className="font-inter font-medium text-xl leading-[130%]">or<a className="text-light-blue font-inter font-medium text-xl leading-[130%] cursor-pointer"> Learn How it Works</a></h1>

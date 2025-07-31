@@ -13,6 +13,7 @@ import HowitWorks from './Component/Pages/HowitWorks'
 import Blog from './Component/Pages/Blog'
 import Contact from './Component/Pages/Contact'
 import BrowserWorkspace from './Component/Pages/BrowserWorkspace'
+import Workspacedetails from './Component/workspacedetails/Workspacedetails'
 
 function App() {
   // const isAuthPage = location.pathname === "/" || location.pathname === "/Signup" || location.pathname === "/forget" || location.pathname === "/change";
@@ -40,6 +41,7 @@ function App() {
                 <Route path='/blog' element={<Blog />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/browserworkspace' element={<BrowserWorkspace/>} />
+                <Route path='/workspacedetails/details' element={<Workspacedetails/>}/>
               </Routes>
               <Footer /></>)
         }
