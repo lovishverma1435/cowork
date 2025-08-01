@@ -1,0 +1,42 @@
+[
+    {
+        "img": "lockoutline.svg",
+        "title": "Lock on bedroom door"
+    },
+    {
+        "img": "kitchen.svg",
+        "title": "Kitchen"
+    },
+    {
+        "img": "wifi.svg",
+        "title": "Wifi"
+    },
+    {
+        "img": "desksolid.svg",
+        "title": "Dedicated workspace"
+    },
+    {
+        "img": "carline.svg",
+        "title": "Free parking on permises"
+    },
+    {
+        "img": "tvoutline.svg",
+        "title": "TV"
+    },
+    {
+        "img": "temperature.svg",
+        "title": "AC"
+    },
+    {
+        "img": "cameras.svg",
+        "title": "Exterioe security cameras on perperty"
+    },
+    {
+        "img": "alarm.svg",
+        "title": "Carbon monooxide alaram"
+    },
+    {
+        "img": "alarmoff.svg",
+        "title": "Smoking alarm"
+    }
+]
