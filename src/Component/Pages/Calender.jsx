@@ -1,16 +1,19 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import dayjs from "dayjs";
-
+import "../../index.css"
 const weekdays = ["S", "M", "T", "W", "T", "F", "S"];
 
+// Utility: Generate calendar days for the given month
 const generateCalendarDays = (monthDate, disableBeforeToday = false) => {
   const startOfMonth = monthDate.startOf("month");
   const endOfMonth = monthDate.endOf("month");
 
   const days = [];
-  const startDay = startOfMonth.day();
+  const startDay = startOfMonth.day(); // 0-6
 
-  for (let i = 0; i < startDay; i++) days.push(null); // empty slots
+  // Add empty slots for alignment
+  for (let i = 0; i < startDay; i++) days.push(null);
+
   for (let d = 1; d <= endOfMonth.date(); d++) {
     const dayDate = monthDate.date(d);
     if (disableBeforeToday && dayDate.isBefore(dayjs(), "day")) {
@@ -23,7 +26,17 @@ const generateCalendarDays = (monthDate, disableBeforeToday = false) => {
   return days;
 };
 
-const MonthView = ({ monthDate, fromDate, toDate, onSelectDate, disablePastDates, showNextArrow, onNext }) => {
+// Calendar Month Component
+const MonthView = ({
+  monthDate,
+  fromDate,
+  toDate,
+  onSelectDate,
+  disablePastDates,
+  showNextArrow,
+  onNext,
+  cssclass
+}) => {
   const days = generateCalendarDays(monthDate, disablePastDates);
 
   const isInRange = (day) => {
@@ -43,40 +56,48 @@ const MonthView = ({ monthDate, fromDate, toDate, onSelectDate, disablePastDates
 
   return (
     <div className="w-[337px] font-inter">
-      <div className="flex w-[217px] justify-between ml-auto  items-center mb-[30px]">
-        <div className="text-center font-inter font-normal  text-[16px] leading-[150%] ">
+      <div className={` ${cssclass} flex w-[217px] justify-between ml-auto  items-center mb-[30px]`}>
+        <div className="text-start font-normal text-[16px] leading-[150%]">
           {monthDate.format("MMMM YYYY")}
         </div>
         {showNextArrow && (
-          <button
-            className=" cursor-pointer "
-            onClick={onNext}
-          >
+          <button className="cursor-pointer" onClick={onNext}>
             <img src="/svg/arrowright.svg" alt="arrowright" />
           </button>
         )}
       </div>
 
-      <div className="grid grid-cols-7 text-center text-xs leading-[150%] text-dark-gray mb-[30px]">
+      <div className="grid grid-cols-7 text-start w-full text-xs leading-[150%] text-dark-gray mb-[30px]">
         {weekdays.map((d) => (
-          <div className="w-[16px] mx-auto" key={d}>{d}</div>
+          <div className="w-full mx-auto" key={d}>
+            {d}
+          </div>
         ))}
       </div>
 
       <div className="grid grid-cols-7 gap-y-[30px] gap-x-[2px]">
         {days.map((day, index) => {
           if (day === "disabled") {
-            return <div key={index} className="h-[36px] w-[36px]" />;
+            return (
+              <div
+                key={index}
+                className="h-[16px] mx-auto w-full cursor-pointer line-through flex text-start  rounded-full text-[12px] font-normal leading-[150%] text-gray-400"
+              >
+                {monthDate.date(index - monthDate.startOf("month").day() + 1).date()}
+              </div>
+            );
           }
+
           const date = day ? monthDate.date(day) : null;
+
           return (
             <div
               key={index}
-              className={`h-[16px] mx-auto w-[16px] flex items-center justify-center rounded-full text-[12px] font-normal leading-[150%]
-                ${day ? "hover:bg-gray-200 cursor-pointer" : ""}
-                ${isSelected(day) ? "bg-black text-white" : ""}
-                ${isInRange(day) ? "bg-[#E0E0E0]" : ""}`}
-              onClick={() => day && onSelectDate(date)}
+              className={`h-[16px] mx-auto flex  w-full text-start  rounded-full text-[12px] font-normal leading-[150%]
+                ${day ? " cursor-pointer " : ""}
+                ${isSelected(day) ? "gradient-text" : ""}
+                ${isInRange(day) ? "gradient-text " : ""}`}
+              onClick={() => day && day !== "disabled" && onSelectDate(date)}
             >
               {day || ""}
             </div>
@@ -87,14 +108,14 @@ const MonthView = ({ monthDate, fromDate, toDate, onSelectDate, disablePastDates
   );
 };
 
+// Main Component
 const SimpleDoubleCalendar = () => {
   const [fromDate, setFromDate] = useState(null);
   const [toDate, setToDate] = useState(null);
-  const [startMonth] = useState(dayjs()); // fixed current month
+  const [startMonth] = useState(dayjs()); // Current month
   const [secondMonth, setSecondMonth] = useState(dayjs().add(1, "month"));
 
   const inputRef = useRef();
-  const [keyboardOpen, setKeyboardOpen] = useState(false);
 
   const handleDateClick = (date) => {
     if (!fromDate || (fromDate && toDate)) {
@@ -112,7 +133,10 @@ const SimpleDoubleCalendar = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mt-10 px-6">
+    <>
+    <section>
+
+    <div className=" ">
       <h2 className="text-[20px] font-semibold text-[#222] mb-2">
         Select check-in date
       </h2>
@@ -120,7 +144,7 @@ const SimpleDoubleCalendar = () => {
         Add your travel dates for exact pricing
       </p>
 
-      <div className="flex  gap-[86px]">
+      <div className="flex gap-[86px]">
         <MonthView
           monthDate={startMonth}
           fromDate={fromDate}
@@ -136,6 +160,7 @@ const SimpleDoubleCalendar = () => {
           onSelectDate={handleDateClick}
           showNextArrow={true}
           onNext={handleNextMonth}
+          cssclass={"mr-[32px]"}
         />
       </div>
 
@@ -151,26 +176,26 @@ const SimpleDoubleCalendar = () => {
           />
         </button>
 
-
         <button
           onClick={() => {
             setFromDate(null);
             setToDate(null);
           }}
-          className="text-[14px] cursor-pointer font-normal font-inter text-[#000000] leading-[150%] hover:underline"
+          className="text-[14px] cursor-pointer font-normal font-inter text-[#000000] leading-[150%] hover:underline pr-7"
         >
           Clear dates
         </button>
       </div>
 
+      {/* // Hidden input for keyboard control
       <input
         type="text"
         ref={inputRef}
         className="absolute opacity-0 pointer-events-none"
-        onFocus={() => setKeyboardOpen(true)}
-        onBlur={() => setKeyboardOpen(false)}
-      />
+      /> */}
     </div>
+    </section>
+    </>
   );
 };
 

@@ -1,0 +1,8 @@
+.gradient-text {
+  background: linear-gradient(180deg, #480CED 0%, #6A39F2 100%); /* You can change colors */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.my-box {
+  box-shadow: 3px 4px 13px 0px #00000040;
+}
