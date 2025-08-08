@@ -8,29 +8,108 @@ import Button from '../ui/Button'
 import "../../index.css"
 const Workspacedetails = () => {
     const [data, setdata] = useState([])
+    const [reviews, setReviews] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [isPerson, setisPerson] = useState()
     const [personCount, setPersonCount] = useState(1);
+    const query = new URLSearchParams(useLocation().search)
+    const id = query.get("page")
     const togglePersonDropdown = () => {
         setisPerson(!isPerson);
     };
-    const query = new URLSearchParams(useLocation().search)
-    const id = query.get("page")
-    const hndeleget = async () => {
-        try {
-            const res = await axios.get(`http://localhost:3000/api/getoneproduct/${id}`)
-            console.log(res.data.data)
-            setdata([res.data.data])
-        } catch (error) {
-            console.error(error);
-        }
+    const [Great, setGreat] = useState(false)
+    const [All, setAll] = useState(false)
+    const [Kitchen, setKitchen] = useState(false)
+    const [Airconditioner, setAirconditioner] = useState(false)
+
+    const [Spacious, setSpacious] = useState(false)
+
+    function handlegrat() {
+        setGreat(true)
+        setAll(false)
+        setSpacious(false)
+        setKitchen(false)
+        setAirconditioner(false)
     }
+    function handleall() {
+        setAll(true)
+        setGreat(false)
+        setSpacious(false)
+        setKitchen(false)
+        setAirconditioner(false)
+    }
+    function handleSpacious() {
+        setSpacious(true)
+        setAll(false)
+        setGreat(false)
+        setKitchen(false)
+        setAirconditioner(false)
+    }
+    function handleKitchen() {
+        setKitchen(true)
+        setSpacious(false)
+        setAll(false)
+        setGreat(false)
+        setAirconditioner(false)
+    }
+    function handleAirconditioner() {
+        setAirconditioner(true)
+        setKitchen(false)
+        setSpacious(false)
+        setAll(false)
+        setGreat(false)
+    }
+    const reveiewtoken = reviews.filter((item) => item.category === "Greathospitality")
+    const reveiewtoken1 = reviews.filter((item) => item.category === "Spacious")
+    const reveiewtoken2 = reviews.filter((item) => item.category === "Kitchen")
+    const reveiewtoken3 = reviews.filter((item) => item.category === "Airconditioner")
+    let reviewsmap = reviews;
+
+    if (Great) {
+        reviewsmap = reveiewtoken;
+    } else if (Spacious) {
+        reviewsmap = reveiewtoken1;
+    } else if (All) {
+        reviewsmap = reviews;
+    } else if (Kitchen) {
+        reviewsmap = reveiewtoken2
+    } else if (Airconditioner) {
+        reviewsmap = reveiewtoken3
+    }
+    console.log(reviews)
+
+
     useEffect(() => {
-        hndeleget()
-    }, [id])
-    console.log(data)
+        const fetchProductAndReviews = async () => {
+            try {
+                // Get product
+                const productRes = await axios.get(`http://localhost:3000/api/getoneproduct/${id}`);
+                const productData = productRes.data.data;
+                setdata([productData]);
+
+                // Get reviews
+                const reviewRes = await axios.get(`http://localhost:3000/api/getonereview/${id}`);
+                setReviews(reviewRes.data.reviews);
+
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching product or reviews:", error);
+                setLoading(false);
+            }
+        };
+
+        if (id) fetchProductAndReviews();
+    }, [id]);
+
+    if (loading) return <p>Loading...</p>;
+
+
+
+
+    console.log(data, reviews)
     const baseurl = "http://localhost:3000/upload"
-    const [reveiwstate, setreewistate] = useState(false)
-    const reveiw = data.map((item) => item.review.filter((item) => item.reviewCharacter === "Vikram" || item.reviewCharacter === "Aman k"))
+    // const [reveiwstate, setreewistate] = useState(false)
+    // const reveiw = data.map((item) => item.review.filter((item) => item.reviewCharacter === "Vikram" || item.reviewCharacter === "Aman k"))
     return (
         <>
             <div className="container">
@@ -230,12 +309,12 @@ const Workspacedetails = () => {
                                     </div>
                                 </div>
                                 <div className="">
-                                    <div className="flex gap-4 py-[50px]">
-                                        <button className='bg-lite-gray py-2.5 px-5 rounded-4xl'>All</button>
-                                        <button onClick={() => setreewistate(!reveiwstate)} className='bg-lite-gray py-2.5 px-5 rounded-2xl'>Great hospitality</button>
-                                        <button className='bg-lite-gray py-2.5 px-5 rounded-2xl'>Spacious</button>
-                                        <button className='bg-lite-gray py-2.5 px-5 rounded-2xl'>Kitchen</button>
-                                        <button className='bg-lite-gray py-2.5 px-5 rounded-2xl'>Air conditioner</button>
+                                    <div className="flex gap-4 py-[50px]  font-inter">
+                                        <button onClick={() => handleall()} className='bg-lightGray py-2.5 px-5 rounded-2xl '>All</button>
+                                        <button onClick={() => handlegrat()} className='bg-lightGray py-2.5 px-5 rounded-2xl'>Great hospitality <span className="text-darkGray">{reveiewtoken.length}</span>  </button>
+                                        <button onClick={() => handleSpacious()} className='bg-lightGray py-2.5 px-5 rounded-2xl'>Spacious <span className="text-darkGray">{reveiewtoken1.length}</span></button>
+                                        <button onClick={() => handleKitchen()} className='bg-lightGray py-2.5 px-5 rounded-2xl'>Kitchen <span className="text-darkGray">{reveiewtoken2.length}</span></button>
+                                        <button onClick={() => handleAirconditioner()} className='bg-lightGray py-2.5 px-5 rounded-2xl'>Air conditioner <span className="text-darkGray">{reveiewtoken3.length}</span></button>
                                     </div>
                                     <div className="">
                                         {
@@ -245,7 +324,7 @@ const Workspacedetails = () => {
                                                         <div key={index + Date.now()}>
                                                             <div className="grid grid-cols-2 gap-[50px]">
                                                                 {
-                                                                    (reveiwstate ? reveiw : item.review)?.map((reviewItem, index) => {
+                                                                    reviews?.map((reviewItem, index) => {
                                                                         console.log(reviewItem.reviewCharacter, "=======")
                                                                         return (
                                                                             <>
