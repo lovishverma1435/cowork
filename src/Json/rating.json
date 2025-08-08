@@ -1,0 +1,27 @@
+[
+    {
+        "name":"Cleanliness",
+        "ratingg":"5.0",
+        "image":"clean.svg"
+    },
+    {
+        "name":"Accuracy",
+        "ratingg":"5.0",
+        "image":"acctick.svg"
+    },
+    {
+        "name":"Check-in",
+        "ratingg":"5.0",
+        "image":"largekey.svg"
+    },
+    {
+        "name":"Communication",
+        "ratingg":"5.0",
+        "image":"communication.svg"
+    },
+    {
+        "name":"Location",
+        "ratingg":"5.0",
+        "image":"mapoutline.svg"
+    }
+]

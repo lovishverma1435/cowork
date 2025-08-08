@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Placeofferr from "../../Json/placeoffer.json"
+import Rating from "../../Json/rating.json"
 import Calendar from '../Pages/Calender'
 import Button from '../ui/Button'
 import "../../index.css"
@@ -28,6 +29,8 @@ const Workspacedetails = () => {
     }, [id])
     console.log(data)
     const baseurl = "http://localhost:3000/upload"
+    const [reveiwstate, setreewistate] = useState(false)
+    const reveiw = data.map((item) => item.review.filter((item) => item.reviewCharacter === "Vikram" || item.reviewCharacter === "Aman k"))
     return (
         <>
             <div className="container">
@@ -157,8 +160,7 @@ const Workspacedetails = () => {
                                                         <h4 className='font-inter font-medium text-[10px] leading-[150%]'>PERSON</h4>
                                                         <div
                                                             className="flex w-full justify-between font-inter font-medium text-sm text-dark-gray leading-[150%] cursor-pointer"
-                                                            onClick={togglePersonDropdown}
-                                                        >
+                                                            onClick={togglePersonDropdown}>
                                                             <h4>{personCount} PERSON{personCount > 1 ? 'S' : ''}</h4>
                                                             <img
                                                                 src="/svg/arrowdown.svg"
@@ -189,6 +191,91 @@ const Workspacedetails = () => {
                                                 </Button>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div className="border-b border-dark-gray pb-[50px]">
+                                    <div className="flex border-t border-dark-gray ">
+                                        <div className="pt-[50px] flex w-full justify-center gap-3">
+                                            <img src="/svg/leafleft.svg" alt="Leaf" />
+                                            <h4 className='font-inter font-semibold text-8xl '>{item.raiting}</h4>
+                                            <img src="/svg/leafright.svg" alt="Leaf" />
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col pt-[30px] gap-3 pb-[70px]">
+                                        <h4 className='flex w-full justify-center font-inter font-medium text-[22px]'>Guest favourite</h4>
+                                        <h6 className=' w-full flex mx-auto text-center max-w-[415px] font-inter font-normal text-[22px] leading-[130%] text-dark-gray'>This home is a guest favourite based on rating, reviews and religibility</h6>
+                                    </div>
+                                    <div className="flex">
+                                        <div className="flex flex-col border-r border-[#D9D9D9]">
+                                            <h2 className='font-medium font-inter text-sm pb-[10px]'>Overall rating</h2>
+                                            <div className="font-inter font-medium text-xs gap-1 pr-3">
+                                                <h6 className='flex items-center gap-1.5'>5<span className='block h-1 w-[114px]  bg-black'></span></h6>
+                                                <h6 className='flex items-center gap-1.5'>4<span className='block h-1 w-[114px]  bg-[#D9D9D9]'></span></h6>
+                                                <h6 className='flex items-center gap-1.5'>3<span className='block h-1 w-[114px]  bg-[#D9D9D9]'></span></h6>
+                                                <h6 className='flex items-center gap-1.5'>2<span className='block h-1 w-[114px]  bg-[#D9D9D9]'></span></h6>
+                                                <h6 className='flex items-center gap-1.5'>1<span className='block h-1 w-[114px]  bg-[#D9D9D9]'></span></h6>
+                                            </div>
+                                        </div>
+                                        <div className="flex w-full">
+                                            {
+                                                Rating.map((item, index) => (
+                                                    <div className='flex flex-col border-r border-[#D9D9D9] pl-[30px] w-full' key={index + Date.now()}>
+                                                        <h2 className='font-inter font-medium text-sm'>{item.name}</h2>
+                                                        <h2 className='font-inter font-medium text-lg pt-1 pb-[30px]'>{item.ratingg}</h2>
+                                                        <img className='h-6 w-6' src={`/svg/${item.image}`} alt="" />
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="">
+                                    <div className="flex gap-4 py-[50px]">
+                                        <button className='bg-lite-gray py-2.5 px-5 rounded-4xl'>All</button>
+                                        <button onClick={() => setreewistate(!reveiwstate)} className='bg-lite-gray py-2.5 px-5 rounded-2xl'>Great hospitality</button>
+                                        <button className='bg-lite-gray py-2.5 px-5 rounded-2xl'>Spacious</button>
+                                        <button className='bg-lite-gray py-2.5 px-5 rounded-2xl'>Kitchen</button>
+                                        <button className='bg-lite-gray py-2.5 px-5 rounded-2xl'>Air conditioner</button>
+                                    </div>
+                                    <div className="">
+                                        {
+                                            data.map((item, index) => {
+                                                return (
+                                                    <>
+                                                        <div key={index + Date.now()}>
+                                                            <div className="grid grid-cols-2 gap-[50px]">
+                                                                {
+                                                                    (reveiwstate ? reveiw : item.review)?.map((reviewItem, index) => {
+                                                                        console.log(reviewItem.reviewCharacter, "=======")
+                                                                        return (
+                                                                            <>
+                                                                                <div className='max-w-[586px] w-full ' key={index}>
+                                                                                    <div className="flex gap-2.5 pb-5">
+                                                                                        <img src={`${baseurl}/${reviewItem.reviewImg}.png`} alt="svg" />
+                                                                                        <div className="flex flex-col gap-1">
+                                                                                            <h1 className='font-inter font-medium text-base leading-[150%]'>{reviewItem.reviewCharacter}</h1>
+                                                                                            <h1 className='font-inter font-normal text-sm leading-[130%] text-dark-gray'>{reviewItem.reviewTimeWith} on Cowork Mate</h1>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div className="flex pb-[22px] gap-2.5">
+                                                                                        <img src={`${baseurl}/${reviewItem.reviewRaitingImg}`} alt="" />
+                                                                                        <h4 className='font-inter font-normal text-sm leading-[130%] text-dark-gray'>{reviewItem.reviewDate}</h4>
+                                                                                    </div>
+                                                                                    <h4 className='font-inter font-normal text-base leading-[130%] text-dark-gray'>{reviewItem.reviewperagraph}</h4>
+                                                                                    <button className='font-inter font-normal text-base leading-[130%] hover:underline cursor-pointer pt-5 '>Share More</button>
+                                                                                </div>
+                                                                            </>
+                                                                        )
+                                                                    }
+                                                                    )
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </>
+                                                )
+                                            }
+                                            )
+                                        }
                                     </div>
                                 </div>
                             </div>
