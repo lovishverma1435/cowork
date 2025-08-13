@@ -2,14 +2,14 @@ import { SwiperSlide, Swiper } from 'swiper/react'
 import "swiper/css";
 import "swiper/css/pagination";
 import { Link } from 'react-router-dom';
-const Kangra = ({ kangra }) => {
+const States = ({ data }) => {
     const baseurl = "http://localhost:3000/upload"
-
+    const valuename=data.slice(0,1).map((item)=>item.catogry)
     return (
         <>
             <div className="flex items-center gap-[10px]">
                 <h5 className="font-Inter font-semibold text-[22px] leading-[100%]">
-                    Available in Kangra
+                    Available in {valuename}
                 </h5>
                 <img src="/svg/arrowright.svg" alt="" />
             </div>
@@ -37,16 +37,17 @@ const Kangra = ({ kangra }) => {
                     },
                 }}>
                 {
-                    kangra.length === 0 ? (
+                    data.length === 0 ? (
                         <p>Loading...</p>
-                    ) : (kangra.map((item, index) => {
+                    ) : (data.map((item, index) => {
                         const formattedPrice = item.price.toLocaleString("en-IN");
-                        return (<>
+
+                        return (
                             <SwiperSlide
                                 key={index}
                                 className=" mt-[32px]  overflow-x-hidden mb-[30px] md:mb-[50px]  max-w-[419px] w-full"
                             >
-                               <Link  to={`/Workspacedetails/details?page=${item.id}`}>
+                                <Link to={`/Workspacedetails/details?page=${item.id}`}>
                                     <img className='rounded-[12px]' src={`${baseurl}/${item.mainImgPath}`} alt={item.text || "workspace image"} />
                                 </Link>
                                 <div className="">
@@ -69,11 +70,15 @@ const Kangra = ({ kangra }) => {
                                     </span>
                                 </div>
                             </SwiperSlide>
-                        </>)
-                    }))}
+                        )
+
+                    }
+                    )
+                    )
+                }
             </Swiper>
         </>
     )
 }
 
-export default Kangra
+export default States

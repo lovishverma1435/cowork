@@ -2,12 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Button from '../ui/Button'
 
 import axios from 'axios';
-import Delhi from '../Browserworkspace/Delhi';
-import Chandigarh from '../Browserworkspace/Chandigarh';
-import Noyda from '../Browserworkspace/Noyda';
-import Jaipur from '../Browserworkspace/Jaipur';
-import Kangra from '../Browserworkspace/Kangra';
-import Dheradun from '../Browserworkspace/Dheradun';
+import States from '../Browserworkspace/States';
 
 const BrowserWorkspace = () => {
     const [data, setdata] = useState([])
@@ -56,12 +51,12 @@ const BrowserWorkspace = () => {
                         </div>
                     </div>
                 </div>
-               <Delhi delhi={delhi}/>
-               <Chandigarh chandigarh={chandigarh}/>
-               <Noyda noyda={noyda}/>
-               <Jaipur jaipur={jaipur}/>
-               <Kangra kangra={kangra}/>
-               <Dheradun dheradun={dheradun}/>
+            <States data={delhi}/>
+            <States data={chandigarh}/>
+            <States data={noyda}/>
+            <States data={jaipur}/>
+            <States data={kangra}/>
+            <States data={dheradun}/>
             </div>
         </>
     )
